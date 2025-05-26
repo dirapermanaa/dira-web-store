@@ -2,14 +2,26 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,  initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>Portofolio - dcreative web undangan</title>
-  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
-  <link rel="stylesheet" href="CSS/style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>dcreative web undangan</title>
+
+ <!-- Bootstrap -->
+ <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+ <script src="bootstrap-5.3.5-dist/js/bootstrap.bundle.min.js"></script>
+
+ <!-- Bootstrap Icons -->
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+ <link rel="stylesheet" href="CSS/style.css">
+
+ <!-- Font Awesome Icon -->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Cantata+One&family=Cinzel:wght@400..900&family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Fjalla+One&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Sacramento&family=Special+Gothic+Condensed+One&family=Yuji+Boku&display=swap" rel="stylesheet">
   <style>
     body{
-      /* overflow-x: hidden; */
+      overflow-x: hidden;
     }
     
     #profile{
@@ -48,219 +60,461 @@
   </style>
 </head>
 <body>
- <!-- Navbar Menu -->
- <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
-  <div class="container">
-    <!-- Logo dan Brand -->
-    <a class="navbar-brand d-flex align-items-center fw-bold m-0" >
-      <img src="asset/images/l.jpg" alt="Logo" width="50" height="50" class="me-2 m">
-      dcreative&nbsp; <span class="text-primary">web undangan</span>
-    </a>
+  <!-- Navbar Menu -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    <div class="container">
+      <!-- Logo dan Brand -->
+      <a class="navbar-brand d-flex align-items-center fw-bold m-0" >
+        <img src="asset/images/l.jpg" alt="Logo" width="50" height="50" class="me-2 m">
+        dcreative&nbsp; <span class="text-primary">web undangan</span>
+      </a>
 
-    <!-- Toggle Hamburger -->
-    <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+      <!-- Toggle Hamburger -->
+      <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <!-- Navbar Menu -->
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto me-3">
-        <li class="nav-item">
-          <a class="nav-link " href="index.html">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link " href="tema.html">Tema</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="portfolio.html">Portofolio</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="kontak.html">Kontak</a>
-        </li>
-      </ul>
+      <!-- Navbar Menu -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto me-3">
+          <li class="nav-item">
+            <a class="nav-link " href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="tema.html">Tema</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="portfolio.html">Portofolio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="kontak.html">Kontak</a>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
   <!-- Profile Section -->
   <section id="profile" class="text-center mb-3 animate-fade-in bc-blue">
     <img src="asset/images/l.jpg" alt="Foto Profil" class="rounded-circle mb-3" width="150" height="150" />
     <h2 class="fw-bold text-dark">Dira Creative</h2>
-    <p class="lead text-primary">Web Developer & Designer | Creative Freelancer | Photographer</p>
+    <p class="lead text-dark">Web Developer & Designer | Creative Freelancer | Photographer</p>
   </section>
 
-   <!-- Bagian Keahlian -->
-   <section id="skills" class="mb-5 animate-slide-up ">
-    <h3 class="mb-4 text-center text-dark">Keahlian & Skill</h3>
-    <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-3">
-        <div class="mb-3">
-          <label>HTML, CSS, JavaScript dan PHP</label>
-          <div class="progress">
-            <div class="progress-bar bg-secondary" role="progressbar" style="width: 45%;">45%</div>
-          </div>
+  <!-- Bagian Keahlian -->
+  <section id="skills" class="mb-5 animate-slide-up ">
+  <h2 class="mb-4 text-center text-dark">Keahlian & Skill</h2>
+  <div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-3">
+      <div class="mb-3">
+        <label>HTML, CSS, JavaScript dan PHP</label>
+        <div class="progress">
+          <div class="progress-bar bg-secondary" role="progressbar" style="width: 45%;">45%</div>
         </div>
-        <div class="mb-3">
-          <label>Microsoft Office</label>
-          <div class="progress">
-            <div class="progress-bar bg-danger" role="progressbar" style="width: 95%;">9%</div>
-          </div>
+      </div>
+      <div class="mb-3">
+        <label>Microsoft Office</label>
+        <div class="progress">
+          <div class="progress-bar bg-danger" role="progressbar" style="width: 95%;">95%</div>
         </div>
-        <div class="mb-3">
-          <label>CorelDraw</label>
-          <div class="progress">
-            <div class="progress-bar bg-success" role="progressbar" style="width: 72%;">72%</div>
-          </div>
+      </div>
+      <div class="mb-3">
+        <label>CorelDraw</label>
+        <div class="progress">
+          <div class="progress-bar bg-success" role="progressbar" style="width: 72%;">72%</div>
         </div>
-        <div class="mb-3">
-          <label>Adobe Photoshop</label>
-          <div class="progress">
-            <div class="progress-bar bg-warning" role="progressbar" style="width: 88%;">88%</div>
-          </div>
+      </div>
+      <div class="mb-3">
+        <label>Adobe Photoshop</label>
+        <div class="progress">
+          <div class="progress-bar bg-warning" role="progressbar" style="width: 88%;">88%</div>
         </div>
-        <div class="mb-3">
-          <label>Adobe Illustrator</label>
-          <div class="progress">
-            <div class="progress-bar bg-info" role="progressbar" style="width: 65%;">65%</div>
-          </div>
+      </div>
+      <div class="mb-3">
+        <label>Adobe Illustrator</label>
+        <div class="progress">
+          <div class="progress-bar bg-info" role="progressbar" style="width: 65%;">65%</div>
         </div>
-        <div class="mb-3">
-          <label>Adobe Lightroom Classic</label>
-          <div class="progress">
-            <div class="progress-bar bg-primary" role="progressbar" style="width: 90%;">92%</div>
-          </div>
+      </div>
+      <div class="mb-3">
+        <label>Adobe Lightroom Classic</label>
+        <div class="progress">
+          <div class="progress-bar bg-primary" role="progressbar" style="width: 90%;">92%</div>
         </div>
       </div>
     </div>
+  </div>
   </section>
 
-    <!-- Bagian Software -->
-    <div class="row justify-content-center text-center text-dark bg-light mt-2">
-      <h4 class="mt-5 mb-5 text-center text-dark">Software yang Saya Gunakan</h4>
-      <div class="col-6 col-md-2 mb-3">
-        <img src="asset/images/vs.png" alt="Photoshop" width="48" height="48" class="mb-2">
-        <p>VS Code</p>
-      </div>
-      <div class="col-6 col-md-2 mb-3">
-        <!-- Ikon SVG Microsoft Office -->
-        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 48 48">
-          <path fill="#e65100" d="M36.883,7.341C38.726,7.85,40,9.508,40,11.397v25.162c0,1.906-1.301,3.57-3.168,4.065L25.29,43.863 L29,36V11l-3.148-6.885L36.883,7.341z"></path><path fill="#b71c1c" d="M29,35v3.927c0,3.803-3.824,6.249-7.019,4.491l-6.936-4.445c-0.802-0.466-1.236-1.462-0.964-2.457 C14.334,35.59,15.202,35,16.115,35L29,35z"></path><path fill="#b71c1c" d="M15.456,32.228l-3.4,1.502C10.694,34.532,9,33.518,9,31.901V14.904c0-1.536,0.811-2.95,2.116-3.691 l11.83-6.687C25.669,2.983,29,5.014,29,8.218v3.09l-10.037,3.486C17.78,15.263,17,16.436,17,17.743v11.742 C17,30.618,16.41,31.665,15.456,32.228z"></path>
-          </svg>
-        <p>Microsoft Office</p>
-      </div>
-      <div class="col-6 col-md-2 mb-3">
-        <!-- Ikon SVG Adobe Photoshop -->
-        <img src="https://www.adobe.com/content/dam/acom/one-console/icons_rebrand/ps_appicon.svg" alt="Photoshop" width="48" height="48" class="mb-2">
-        <p>Adobe Photoshop</p>
-      </div>
-      <div class="col-6 col-md-2 mb-3">
-        
-        <!-- Ikon SVG Adobe Illustrator -->
-        <svg xmlns="http://www.w3.org/2000/svg"  alt="Adobe Illustrator" width="48" height="48" class="mb-2" viewBox="0 0 511.45 498.66"><defs><style>.a{fill:#300;}.b{fill:#ff9a00;}</style></defs><title>adobe-illustrator</title><rect class="a" width="511.45" height="498.66" rx="90.57"/><path class="b" d="M247.84,299.26H168.58l-16.12,50.09a4,4,0,0,1-4.12,3.09H108.2q-3.44,0-2.4-3.78L174.42,151q1-3.09,2.06-7a74.51,74.51,0,0,0,1.37-13.9,2.11,2.11,0,0,1,1.8-2.4,2,2,0,0,1,.6,0H234.8c1.6,0,2.51.57,2.75,1.71L315.43,349c.69,2.28,0,3.43-2.06,3.43h-44.6a3.17,3.17,0,0,1-3.43-2.4ZM180.94,256h54.2q-2.05-6.87-4.8-15.44t-5.83-18.36l-6.18-19.55q-3.09-9.78-5.66-18.88T208,167.17h-.34a276.76,276.76,0,0,1-7.21,27.44q-4.8,15.45-9.78,31.57T180.94,256Z"/><path class="b" d="M361.74,164.08a24.9,24.9,0,0,1-18.87-7.55,27.12,27.12,0,0,1-7.2-19.56,25.17,25.17,0,0,1,7.72-19,26.52,26.52,0,0,1,19-7.38q12.35,0,19.38,7.38a26.52,26.52,0,0,1,7,19,26.78,26.78,0,0,1-7.38,19.56A26.32,26.32,0,0,1,361.74,164.08ZM338.07,349V185c0-2.06.91-3.09,2.74-3.09H383c1.82,0,2.74,1,2.74,3.09V349c0,2.28-.91,3.43-2.74,3.43H341.16C339.1,352.44,338.07,351.29,338.07,349Z"/></svg>
-        <p>Adobe Illustrator</p>
-      </div>
-
-      <div class="col-6 col-md-2 mb-3">
-        <!-- Ikon SVG CorelDRAW (sederhana) -->
-        <img src="asset/images/corel.png" alt="CorelDraw" width="48" height="48" fill="#FF9A00" viewBox="0 0 24 24" class="mb-2">
-        <p>CorelDRAW</p>
-      </div>
-
-        <!-- Ikon SVG Lightroom) -->
-      <div class="col-6 col-md-2 mb-3">
-        <img src="asset/images/lrc.png" alt="Photoshop" width="48" height="48" class="mb-2">
-        <p>Lightroom</p>
-      </div>
+  <!-- Bagian Software -->
+  <div class="row justify-content-center text-center text-dark bg-light mt-2">
+    <h4 class="mt-5 mb-5 text-center text-dark">Software yang Saya Gunakan</h4>
+    <div class="col-6 col-md-2 mb-3">
+      <img src="asset/images/vs.png" alt="Photoshop" width="48" height="48" class="mb-2">
+      <p>VS Code</p>
     </div>
+    <div class="col-6 col-md-2 mb-3">
+      <!-- Ikon SVG Microsoft Office -->
+      <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 48 48">
+        <path fill="#e65100" d="M36.883,7.341C38.726,7.85,40,9.508,40,11.397v25.162c0,1.906-1.301,3.57-3.168,4.065L25.29,43.863 L29,36V11l-3.148-6.885L36.883,7.341z"></path><path fill="#b71c1c" d="M29,35v3.927c0,3.803-3.824,6.249-7.019,4.491l-6.936-4.445c-0.802-0.466-1.236-1.462-0.964-2.457 C14.334,35.59,15.202,35,16.115,35L29,35z"></path><path fill="#b71c1c" d="M15.456,32.228l-3.4,1.502C10.694,34.532,9,33.518,9,31.901V14.904c0-1.536,0.811-2.95,2.116-3.691 l11.83-6.687C25.669,2.983,29,5.014,29,8.218v3.09l-10.037,3.486C17.78,15.263,17,16.436,17,17.743v11.742 C17,30.618,16.41,31.665,15.456,32.228z"></path>
+        </svg>
+      <p>Microsoft Office</p>
+    </div>
+    <div class="col-6 col-md-2 mb-3">
+      <!-- Ikon SVG Adobe Photoshop -->
+      <img src="https://www.adobe.com/content/dam/acom/one-console/icons_rebrand/ps_appicon.svg" alt="Photoshop" width="48" height="48" class="mb-2">
+      <p>Adobe Photoshop</p>
+    </div>
+    <div class="col-6 col-md-2 mb-3">
+      
+      <!-- Ikon SVG Adobe Illustrator -->
+      <svg xmlns="http://www.w3.org/2000/svg"  alt="Adobe Illustrator" width="48" height="48" class="mb-2" viewBox="0 0 511.45 498.66"><defs><style>.a{fill:#300;}.b{fill:#ff9a00;}</style></defs><title>adobe-illustrator</title><rect class="a" width="511.45" height="498.66" rx="90.57"/><path class="b" d="M247.84,299.26H168.58l-16.12,50.09a4,4,0,0,1-4.12,3.09H108.2q-3.44,0-2.4-3.78L174.42,151q1-3.09,2.06-7a74.51,74.51,0,0,0,1.37-13.9,2.11,2.11,0,0,1,1.8-2.4,2,2,0,0,1,.6,0H234.8c1.6,0,2.51.57,2.75,1.71L315.43,349c.69,2.28,0,3.43-2.06,3.43h-44.6a3.17,3.17,0,0,1-3.43-2.4ZM180.94,256h54.2q-2.05-6.87-4.8-15.44t-5.83-18.36l-6.18-19.55q-3.09-9.78-5.66-18.88T208,167.17h-.34a276.76,276.76,0,0,1-7.21,27.44q-4.8,15.45-9.78,31.57T180.94,256Z"/><path class="b" d="M361.74,164.08a24.9,24.9,0,0,1-18.87-7.55,27.12,27.12,0,0,1-7.2-19.56,25.17,25.17,0,0,1,7.72-19,26.52,26.52,0,0,1,19-7.38q12.35,0,19.38,7.38a26.52,26.52,0,0,1,7,19,26.78,26.78,0,0,1-7.38,19.56A26.32,26.32,0,0,1,361.74,164.08ZM338.07,349V185c0-2.06.91-3.09,2.74-3.09H383c1.82,0,2.74,1,2.74,3.09V349c0,2.28-.91,3.43-2.74,3.43H341.16C339.1,352.44,338.07,351.29,338.07,349Z"/></svg>
+      <p>Adobe Illustrator</p>
+    </div>
+
+    <div class="col-6 col-md-2 mb-3">
+      <!-- Ikon SVG CorelDRAW (sederhana) -->
+      <img src="asset/images/corel.png" alt="CorelDraw" width="48" height="48" fill="#FF9A00" viewBox="0 0 24 24" class="mb-2">
+      <p>CorelDRAW</p>
+    </div>
+
+      <!-- Ikon SVG Lightroom) -->
+    <div class="col-6 col-md-2 mb-3">
+      <img src="asset/images/lrc.png" alt="Photoshop" width="48" height="48" class="mb-2">
+      <p>Lightroom</p>
+    </div>
+  </div>
  
-
-    <!-- Bagian Project -->
-    <div class="container">
-      <h3 class="text-center text-dark mb-5 mt-5">Project Saya</h3>
-      <div class="row">
-        <div class="col-6 col-md-4 mb-4">
-          <div class="card">
-            <img src="asset/images/p1.jpg" class="card-img-top" alt="Project 1">
-            <div class="card-body">
-              <h5 class="card-title">Project 1</h5>
-              <p class="card-text">Deskripsi singkat project pertama Anda.</p>
-            </div>
+  <!-- Bagian Project -->
+  <div class="container">
+    <h2 class="text-center text-dark mb-5 mt-5">Project Saya</h2>
+    <div class="row">
+      <div class="col-6 col-md-4 mb-4">
+        <div class="card">
+          <img src="asset/images/p1.jpg" class="card-img-top" alt="Project 1">
+          <div class="card-body">
+            <h5 class="card-title">Project 1</h5>
+            <p class="card-text">Hasil Design Poster.</p>
           </div>
         </div>
-        <div class="col-6 col-md-4 mb-4">
-          <div class="card">
-            <img src="asset/images/p2.jpg" class="card-img-top" alt="Project 2">
-            <div class="card-body">
-              <h5 class="card-title">Project 2</h5>
-              <p class="card-text">Deskripsi singkat project kedua Anda.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-6 col-md-4 mb-4">
-          <div class="card">
-            <img src="asset/images/p3.jpg" class="card-img-top" alt="Project 3">
-            <div class="card-body">
-              <h5 class="card-title">Project 3</h5>
-              <p class="card-text">Deskripsi singkat project ketiga Anda.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-6 col-md-4 mb-4">
-          <div class="card">
-            <img src="asset/images/p4.jpg" class="card-img-top" alt="Project 4">
-            <div class="card-body">
-              <h5 class="card-title">Project 4</h5>
-              <p class="card-text">Deskripsi singkat project keempat Anda.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-6 col-md-4 mb-4">
-          <div class="card">
-            <img src="asset/images/p5.jpg" class="card-img-top" alt="Project 4">
-            <div class="card-body">
-              <h5 class="card-title">Project 4</h5>
-              <p class="card-text">Deskripsi singkat project keempat Anda.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-6 col-md-4 mb-4">
-          <div class="card">
-            <img src="asset/images/p6.jpg" class="card-img-top" alt="Project 4">
-            <div class="card-body">
-              <h5 class="card-title">Project 4</h5>
-              <p class="card-text">Deskripsi singkat project keempat Anda.</p>
-            </div>
-          </div>
-        </div>
-        <!-- Tambah project lagi jika perlu -->
       </div>
+      <div class="col-6 col-md-4 mb-4">
+        <div class="card">
+          <img src="asset/images/p2.jpg" class="card-img-top" alt="Project 2">
+          <div class="card-body">
+            <h5 class="card-title">Project 2</h5>
+            <p class="card-text">Membuat Website Seperti Ngl.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 mb-4">
+        <div class="card">
+          <img src="asset/images/p3.jpg" class="card-img-top" alt="Project 3">
+          <div class="card-body">
+            <h5 class="card-title">Project 3</h5>
+            <p class="card-text">Proses Design Certifikat.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 mb-4">
+        <div class="card">
+          <img src="asset/images/p4.jpg" class="card-img-top" alt="Project 4">
+          <div class="card-body">
+            <h5 class="card-title">Project 4</h5>
+            <p class="card-text">Tracing.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 mb-4">
+        <div class="card">
+          <img src="asset/images/p5.jpg" class="card-img-top" alt="Project 4">
+          <div class="card-body">
+            <h5 class="card-title">Project 5</h5>
+            <p class="card-text">Disgn Decal Body Motor KLX.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 mb-4">
+        <div class="card">
+          <img src="asset/images/p6.jpg" class="card-img-top" alt="Project 4">
+          <div class="card-body">
+            <h5 class="card-title">Project 6</h5>
+            <p class="card-text">Design Hari Raya Idul Fitri.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 mb-4">
+        <div class="card">
+          <img src="asset/images/p7.jpg" class="card-img-top" alt="Project 4">
+          <div class="card-body">
+            <h5 class="card-title">Project 7</h5>
+            <p class="card-text">Membuat Web Perpustakaan Menggunakan Bahasa Pemrograman PHP.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 mb-4">
+        <div class="card">
+          <img src="asset/images/p8.jpg" class="card-img-top" alt="Project 4">
+          <div class="card-body">
+            <h5 class="card-title">Project 8</h5>
+            <p class="card-text">Hasil Cetak Foto Anak Madrasah.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 mb-4">
+        <div class="card">
+          <img src="asset/images/p9.jpg" class="card-img-top" alt="Project 4">
+          <div class="card-body">
+            <h5 class="card-title">Project 9</h5>
+            <p class="card-text">Design Poster Terawih.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 mb-4">
+        <div class="card">
+          <img src="asset/images/p10.jpg" class="card-img-top" alt="Project 4">
+          <div class="card-body">
+            <h5 class="card-title">Project 10</h5>
+            <p class="card-text">Hasil Foto Street Di Pasar Cicurug.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 mb-4">
+        <div class="card">
+          <img src="asset/images/p11.jpg" class="card-img-top" alt="Project 4">
+          <div class="card-body">
+            <h5 class="card-title">Project 11</h5>
+            <p class="card-text">Proses Editing Foto Anak Madrasah.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 mb-4">
+        <div class="card">
+          <img src="asset/images/p12.jpg" class="card-img-top" alt="Project 4">
+          <div class="card-body">
+            <h5 class="card-title">Project 12</h5>
+            <p class="card-text">Jobs Motret Anak Madrasah.</p>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="col-6 col-md-4 mb-4">
+        <div class="card">
+          <img src="asset/images/p13.jpg" class="card-img-top" alt="Project 4">
+          <div class="card-body">
+            <h5 class="card-title">Project 4</h5>
+            <p class="card-text">Deskripsi singkat project keempat Anda.</p>
+          </div>
+        </div>
+      </div> -->
+      <div class="col-6 col-md-4 mb-4">
+        <div class="card">
+          <img src="asset/images/p14.jpg" class="card-img-top" alt="Project 4">
+          <div class="card-body">
+            <h5 class="card-title">Project 13</h5>
+            <p class="card-text">Design Cv.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 mb-4">
+        <div class="card">
+          <img src="asset/images/p15.jpg" class="card-img-top" alt="Project 4">
+          <div class="card-body">
+            <h5 class="card-title">Project 14</h5>
+            <p class="card-text">Proses Project Myobe.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 mb-4">
+        <div class="card">
+          <img src="asset/images/p16.jpg" class="card-img-top" alt="Project 4">
+          <div class="card-body">
+            <h5 class="card-title">Project 15</h5>
+            <p class="card-text">Hasil Design Poster TopUp.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 mb-4">
+        <div class="card">
+          <img src="asset/images/p17.jpg" class="card-img-top" alt="Project 4">
+          <div class="card-body">
+            <h5 class="card-title">Project 16</h5>
+            <p class="card-text">Cetak Foto Kelas.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 mb-4">
+        <div class="card">
+          <img src="asset/images/p18.jpg" class="card-img-top" alt="Project 4">
+          <div class="card-body">
+            <h5 class="card-title">Project 17</h5>
+            <p class="card-text">Project Isi Berkas Laporan.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 mb-4">
+        <div class="card">
+          <img src="asset/images/p19.jpg" class="card-img-top" alt="Project 4">
+          <div class="card-body">
+            <h5 class="card-title">Project 18</h5>
+            <p class="card-text">Project Membuat Web Kedai Kopi Kenangan Kita.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 mb-4">
+        <div class="card">
+          <img src="asset/images/p20.jpg" class="card-img-top" alt="Project 4">
+          <div class="card-body">
+            <h5 class="card-title">Project 19</h5>
+            <p class="card-text">Design Surat Undangan.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 mb-4">
+        <div class="card">
+          <img src="asset/images/p21.jpg" class="card-img-top" alt="Project 4">
+          <div class="card-body">
+            <h5 class="card-title">Project 20</h5>
+            <p class="card-text">Edit Foto Client.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 mb-4">
+        <div class="card">
+          <img src="asset/images/p22.jpg" class="card-img-top" alt="Project 4">
+          <div class="card-body">
+            <h5 class="card-title">Project 21</h5>
+            <p class="card-text">Bongkar Pasang Pc.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 mb-4">
+        <div class="card">
+          <img src="asset/images/p23.jpg" class="card-img-top" alt="Project 4">
+          <div class="card-body">
+            <h5 class="card-title">Project 22</h5>
+            <p class="card-text">Design Kaos Tim.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 mb-4">
+        <div class="card">
+          <img src="asset/images/p24.jpg" class="card-img-top" alt="Project 4">
+          <div class="card-body">
+            <h5 class="card-title">Project 23</h5>
+            <p class="card-text">Project Membuat Web Portofolio.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 mb-4">
+        <div class="card">
+          <img src="asset/images/p25.jpg" class="card-img-top" alt="Project 4">
+          <div class="card-body">
+            <h5 class="card-title">Project 24</h5>
+            <p class="card-text">Project Membuat Web Store.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 mb-4">
+        <div class="card">
+          <img src="asset/images/p26.jpg" class="card-img-top" alt="Project 4">
+          <div class="card-body">
+            <h5 class="card-title">Project 25</h5>
+            <p class="card-text">Desgin Poster Kelas.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 mb-4">
+        <div class="card">
+          <img src="asset/images/p27.jpg" class="card-img-top" alt="Project 4">
+          <div class="card-body">
+            <h5 class="card-title">Project 26</h5>
+            <p class="card-text">Design Baju Kelas (Tapi Wacana).</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 mb-4">
+        <div class="card">
+          <img src="asset/images/p28.jpg" class="card-img-top" alt="Project 4">
+          <div class="card-body">
+            <h5 class="card-title">Project 27</h5>
+            <p class="card-text">Design Poster Minuman.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 mb-4">
+        <div class="card">
+          <img src="asset/images/p29.jpg" class="card-img-top" alt="Project 4">
+          <div class="card-body">
+            <h5 class="card-title">Project 28</h5>
+            <p class="card-text">Print Laporan.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 mb-4">
+        <div class="card">
+          <img src="asset/images/p30.jpg" class="card-img-top" alt="Project 4">
+          <div class="card-body">
+            <h5 class="card-title">Project 29</h5>
+            <p class="card-text">Membuat Bumper Di Power Point.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 mb-4">
+        <div class="card">
+          <img src="asset/images/p31.jpg" class="card-img-top" alt="Project 4">
+          <div class="card-body">
+            <h5 class="card-title">Project 30</h5>
+            <p class="card-text">Tabel Excel.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 mb-4">
+        <div class="card">
+          <img src="asset/images/p32.jpg" class="card-img-top" alt="Project 4">
+          <div class="card-body">
+            <h5 class="card-title">Project 31</h5>
+            <p class="card-text">Proses Membuat.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 mb-4">
+        <div class="card">
+          <img src="asset/images/p33.jpg" class="card-img-top" alt="Project 4">
+          <div class="card-body">
+            <h5 class="card-title">Project 32</h5>
+            <p class="card-text">Design Pembuatan Baju Ultras.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Tambah project lagi jika perlu -->
     </div>
-    
-
-    <!-- Footer -->
-    <footer class="bg-info bg-opacity-12 py-3 ">
-      <div class="container text-center">
-        <h6 class="fw-semibold text-muted mb-2">dcreative web undangan</h6>
-        
-        <div class=" d-flex justify-content-center align-items-center icon-footer">
-          <a href="https://www.instagram.com/diraprmna_/" target="_blank" class="me-5">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="width: 28px; height: 28px; display: block;">
-          </a>
-          <a href="https://www.facebook.com/dirapermna.cboedakmns" target="_blank" class="me-5">
-            <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" style="width: 28px; height: 28px; display: block;">
-          </a>
-          <a href="https://wa.me/6283143235772" target="_blank" >
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 28px; height: 28px; display: block;">
-          </a>
-        </div>
-    
-        <hr class="w-50 mx-auto my-2" />
-    
-        <p class="text-light small mb-0">&copy; 2025 dcreative.webinvite — All rights reserved.</p>
+  </div>
+  
+  <!-- Footer -->
+  <footer class="bg-info bg-opacity-12 py-3 ">
+    <div class="container text-center">
+      <h6 class="fw-semibold text-muted mb-2">dcreative web undangan</h6>
+      
+      <div class=" d-flex justify-content-center align-items-center icon-footer">
+        <a href="https://www.instagram.com/diraprmna_/" target="_blank" class="me-5">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="width: 28px; height: 28px; display: block;">
+        </a>
+        <a href="https://www.facebook.com/dirapermna.cboedakmns" target="_blank" class="me-5">
+          <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" style="width: 28px; height: 28px; display: block;">
+        </a>
+        <a href="https://wa.me/6283143235772" target="_blank" >
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 28px; height: 28px; display: block;">
+        </a>
       </div>
-    </footer>
+  
+      <hr class="w-50 mx-auto my-2" />
+  
+      <p class="text-light small mb-0">&copy; 2025 dcreative.webinvite — All rights reserved.</p>
+    </div>
+  </footer>
 
   <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="JS/script.js"></script>
