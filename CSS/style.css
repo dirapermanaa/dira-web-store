@@ -371,6 +371,15 @@ html, body {
         width: 28px;
         height: 28px;
       }
+
+    #skills{
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+    .progress{
+      width: 100%;
+      margin: 0 auto;
+    }
  }
   
   /* Mobile <768px */
@@ -529,6 +538,19 @@ html, body {
     .icon-footer img {
         width: 22px;
         height: 22px;
+    }
+    #skills{
+      padding-left: 2rem;
+      padding-right: 2rem;
+      text-align: center;
+    }
+    #skills label{
+      display: block;
+      text-align: center;
+    }
+    .progress{
+      width: 80%;
+      margin: 0 auto;
     }
       
   }
