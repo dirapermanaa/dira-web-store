@@ -57,6 +57,21 @@
       from {opacity: 0; transform: translateY(20px);}
       to {opacity: 1; transform: translateY(0);}
     }
+
+    /* Mobile <768px */
+    @media (max-width: 767.98px) {
+      .dirz{
+        margin-left: 0.1 rem;
+        margin-right: 0.1 rem;
+      }
+      .card-body p{
+        font-size: 12px;
+        text-align: center;
+      }
+      .card-body h5{
+        text-align: center;
+      }
+    }
   </style>
 </head>
 <body>
@@ -65,7 +80,7 @@
     <div class="container">
       <!-- Logo dan Brand -->
       <a class="navbar-brand d-flex align-items-center fw-bold m-0" >
-        <img src="asset/images/l.jpg" alt="Logo" width="50" height="50" class="me-2 m">
+        <img src="asset/images/l.jpg" alt="Logo" width="50" height="50" loading="lazy" class="me-2 m">
         dcreative&nbsp; <span class="text-primary">web undangan</span>
       </a>
 
@@ -97,7 +112,7 @@
 
   <!-- Profile Section -->
   <section id="profile" class="text-center mb-3 animate-fade-in bc-blue">
-    <img src="asset/images/l.jpg" alt="Foto Profil" class="rounded-circle mb-3" width="150" height="150" />
+    <img src="asset/images/l.jpg" alt="Foto Profil" class="rounded-circle mb-3" width="150" height="150" loading="lazy" />
     <h2 class="fw-bold text-dark">Dira Creative</h2>
     <p class="lead text-dark">Web Developer & Designer | Creative Freelancer | Photographer</p>
   </section>
@@ -111,7 +126,7 @@
       <div class="mb-3">
         <label>HTML, CSS, JavaScript dan PHP</label>
         <div class="progress">
-          <div class="progress-bar bg-secondary" role="progressbar" style="width: 45%;">45%</div>
+          <div class="progress-bar bg-secondary" role="progressbar" style="width: 75%;">75%</div>
         </div>
       </div>
       <div class="mb-3">
@@ -190,7 +205,7 @@
   <!-- Bagian Project -->
   <div class="container">
     <h2 class="text-center text-dark mb-5 mt-5">Project Saya</h2>
-    <div class="row">
+    <div class="row dirz">
       <div class="col-6 col-md-4 mb-4">
         <div class="card">
           <img src="asset/images/p1.jpg" class="card-img-top" alt="Project 1">
@@ -202,10 +217,10 @@
       </div>
       <div class="col-6 col-md-4 mb-4">
         <div class="card">
-          <img src="asset/images/p2.jpg" class="card-img-top" alt="Project 2">
+          <img src="asset/images/p9.jpg" class="card-img-top" alt="Project 2">
           <div class="card-body">
             <h5 class="card-title">Project 2</h5>
-            <p class="card-text">Membuat Website Seperti Ngl.</p>
+            <p class="card-text">Design Poster Terawih.</p>
           </div>
         </div>
       </div>
@@ -232,7 +247,7 @@
           <img src="asset/images/p5.jpg" class="card-img-top" alt="Project 4">
           <div class="card-body">
             <h5 class="card-title">Project 5</h5>
-            <p class="card-text">Disgn Decal Body Motor KLX.</p>
+            <p class="card-text">Disgn Decal Body KLX.</p>
           </div>
         </div>
       </div>
@@ -250,7 +265,7 @@
           <img src="asset/images/p7.jpg" class="card-img-top" alt="Project 4">
           <div class="card-body">
             <h5 class="card-title">Project 7</h5>
-            <p class="card-text">Membuat Web Perpustakaan Menggunakan Bahasa Pemrograman PHP.</p>
+            <p class="card-text">Membuat Web Perpustakaan.</p>
           </div>
         </div>
       </div>
@@ -265,10 +280,10 @@
       </div>
       <div class="col-6 col-md-4 mb-4">
         <div class="card">
-          <img src="asset/images/p9.jpg" class="card-img-top" alt="Project 4">
+          <img src="asset/images/p2.jpg" class="card-img-top" alt="Project 4">
           <div class="card-body">
             <h5 class="card-title">Project 9</h5>
-            <p class="card-text">Design Poster Terawih.</p>
+            <p class="card-text">Membuat Website Seperti Ngl.</p>
           </div>
         </div>
       </div>
@@ -346,10 +361,10 @@
       </div>
       <div class="col-6 col-md-4 mb-4">
         <div class="card">
-          <img src="asset/images/p18.jpg" class="card-img-top" alt="Project 4">
+          <img src="asset/images/p27.jpg" class="card-img-top" alt="Project 4">
           <div class="card-body">
             <h5 class="card-title">Project 17</h5>
-            <p class="card-text">Project Isi Berkas Laporan.</p>
+            <p class="card-text">Design Baju Kelas (Tapi Wacana).</p>
           </div>
         </div>
       </div>
@@ -427,10 +442,10 @@
       </div>
       <div class="col-6 col-md-4 mb-4">
         <div class="card">
-          <img src="asset/images/p27.jpg" class="card-img-top" alt="Project 4">
+          <img src="asset/images/p18.jpg" class="card-img-top" alt="Project 4">
           <div class="card-body">
             <h5 class="card-title">Project 26</h5>
-            <p class="card-text">Design Baju Kelas (Tapi Wacana).</p>
+            <p class="card-text">Mengisi Berkas.</p>
           </div>
         </div>
       </div>
@@ -454,7 +469,7 @@
       </div>
       <div class="col-6 col-md-4 mb-4">
         <div class="card">
-          <img src="asset/images/p30.jpg" class="card-img-top" alt="Project 4">
+          <img src="asset/images/p33.jpg" class="card-img-top" alt="Project 4">
           <div class="card-body">
             <h5 class="card-title">Project 29</h5>
             <p class="card-text">Membuat Bumper Di Power Point.</p>
@@ -466,7 +481,7 @@
           <img src="asset/images/p31.jpg" class="card-img-top" alt="Project 4">
           <div class="card-body">
             <h5 class="card-title">Project 30</h5>
-            <p class="card-text">Tabel Excel.</p>
+            <p class="card-text">Design Pembuatan Baju Ultras.</p>
           </div>
         </div>
       </div>
@@ -481,10 +496,10 @@
       </div>
       <div class="col-6 col-md-4 mb-4">
         <div class="card">
-          <img src="asset/images/p33.jpg" class="card-img-top" alt="Project 4">
+          <img src="asset/images/p30.jpg" class="card-img-top" alt="Project 4">
           <div class="card-body">
             <h5 class="card-title">Project 32</h5>
-            <p class="card-text">Design Pembuatan Baju Ultras.</p>
+            <p class="card-text">Tabel Excel.</p>
           </div>
         </div>
       </div>

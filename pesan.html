@@ -53,17 +53,18 @@
 </head>
 
 <body>
+  <!-- Isi -->
   <div class="chat-container">
     <div class="card shadow card-custom">
       <div class="text-center mb-3">
         <img src="asset/images/l.jpg" class="rounded-circle mb-2" style="height: 50px; width: 50px;" alt="Logo">
         <h5 class="fw-bold text-primary mb-0">Chat Admin</h5>
-        <small class="text-muted">Dcreative</small>
+        <small class="text-muted">Dira Store</small>
       </div>
 
       <div class="mb-2">
         <label for="waNumber" class="form-label text-center fs-0.1">👇Klik tombol di bawah untuk menyalin👇</label>
-        <input type="text" class="form-control text-center fw-bold" id="waNumber" value="083143235772" readonly>
+        <input type="text" class="form-control text-center fw-bold" id="waNumber" value="083162695583" readonly>
       </div>
 
       <div class="d-grid gap-2 my-3">
@@ -75,6 +76,7 @@
     </div>
   </div>
 
+  <!-- Script -->
   <script>
     function copyNumber() {
       const input = document.getElementById("waNumber");
@@ -88,8 +90,8 @@
     const tema = urlParams.get("tema");
 
     // Siapkan data WhatsApp
-    const nomorAdmin = "6283143235772"; // Ganti dengan nomor kamu
-    const pesan = `Saya mau pesan ${tema}`;
+    const nomorAdmin = "6283162695583"; // Ganti dengan nomor kamu
+    const pesan = `Saya mau order ${tema}`;
     const urlWA = `https://wa.me/${nomorAdmin}?text=${encodeURIComponent(pesan)}`;
 
     // Ubah tombol agar link ke WhatsApp otomatis
