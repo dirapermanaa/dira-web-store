@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>dira web store</title>
+  
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+    <script src="bootstrap-5.3.5-dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/style.css">
+
+    <!-- Font Awesome Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+      /* Gaya CSS tambahan jika diperlukan */
+      body {
+          font-family: sans-serif; /* Contoh font */
+          padding-top: 0; /* Hilangkan padding atas body */
+          /* height: 10000px; */
+      }
+      .navbar {
+          position: fixed; /* Tetap di atas */
+          top: 0;
+          left: 0;
+          width: 100%;
+          z-index: 1000; /* Pastikan di atas konten */
+      }
+      .hero {
+          background-color: #16E2F5; /* Contoh warna latar belakang */
+          padding-top: 60px;
+          padding-bottom: 80px;
+          text-align: center;
+          /* position: relative; */
+          margin-top: -35px; /* Coba nilai negatif kecil terlebih dahulu */
+      }
+      .kategori {
+          padding: 40px 0;
+      }
+      .tombol-kategori {
+          margin: 5px;
+      }
+
+      .desktop-buttons {
+          display: flex;
+          justify-content: center; /* Memberikan jarak merata antara kelompok */
+          width: 80%; /* Mengurangi lebar container agar kelompok menjauh dari tengah */
+          margin: 0 auto; /* Menengahkan container desktop-buttons */
+      }
+
+      .desktop-buttons > div {
+          margin-left: 20px;
+          margin-right: 20px;
+      }
+
+      .desktop-buttons > div button {
+          margin: 0.5rem 0; /* Jarak antar tombol dalam kelompok */
+      }
+
+      .mobile-buttons {
+          display: none; /* Sembunyikan di desktop */
+      }
+
+ 
+
+      /* Gaya untuk setiap artikel tema */
+      .col-6, .col-md-4, .col-lg-3 {
+          max-width: 200px; /* Atur lebar maksimum setiap item tema */
+          margin-left: auto; /* Untuk menengahkan item secara horizontal */
+          margin-right: auto; /* Untuk menengahkan item secara horizontal */
+          margin-bottom: 20px; /* Berikan jarak antar item tema */
+      }
+
+      .card-img-top {
+          width: 100%; /* Membuat gambar responsif dalam lebar maksimumnya */
+          height: auto; /* Menjaga aspek rasio gambar */
+      }
+      .filter-button.active {
+          background-color: #007bff; /* Contoh: Warna latar belakang biru */
+          color: white; /* Contoh: Warna teks putih */
+          border-color: #007bff; /* Contoh: Warna border biru */
+          /* Anda bisa menambahkan properti CSS lain sesuai keinginan Anda, */
+          /* seperti font-weight, box-shadow, dll. */
+      }
+
+     
+
+      /* Tidak ada perubahan signifikan pada CSS desktop yang Anda miliki */
+
+/* Media query untuk layar dengan lebar maksimum 767px (ukuran layar mobile) */
+@media (max-width: 767px) {
+    .desktop-buttons {
+        display: none;
+    }
+
+    .mobile-buttons {
+        display: block;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .hero .container .input-group { /* Lebih spesifik */
+        width: 100% !important; /* Paksa dengan !important (gunakan dengan hati-hati) */
+        justify-content: center;
+    }
+
+     .form-control { /* Lebih spesifik */
+        flex-grow: 0.5 !important;
+        flex-basis: 50% !important;
+    }
+
+    .hero .container .input-group .btn-primary { /* Lebih spesifik */
+        background-color: #007bff;
+    }
+}
+
+
+  </style>
+    
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+      <div class="container">
+        <!-- Logo dan Brand -->
+        <a class="navbar-brand d-flex align-items-center fw-bold m-0" >
+          <img src="asset/images/l.jpg" alt="Logo" width="50" height="50" class="me-2 m">
+          dira web&nbsp; <span class="text-primary">store</span>
+        </a>
+  
+        <!-- Toggle Hamburger -->
+        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+  
+        <!-- Navbar Menu -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto me-3">
+            <li class="nav-item">
+              <a class="nav-link " href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="tema.html">Tema</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="portfolio.html">Portofolio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="kontak.html">Kontak</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- hero -->
+    <div class="hero">
+        <div class="container">
+            <h1>Desain CV & Surat Lamaran</h1>
+            <p class="lead">Temukan desain Cv & Surat Lamaran Anda cari.</p>
+            <div class="input-group mb-3 w-50 mx-auto w-md-100">
+                <input type="text" class="form-control" placeholder="Cari Tema: Contoh, Syari, Biru, Tanpa Foto" aria-label="Cari Tema">
+                <button class="btn btn-primary" type="button">Cari</button>
+            </div>
+        </div>
+    </div>
+
+  <!-- Kategori -->
+  <div class="kategori py-5">
+    <div class="container">
+        <div class="d-flex justify-content-center mb-3">
+            <button class="btn btn-outline-secondary btn-lg tombol-kategori filter-button active" data-filter="semua">Semua Design</button>
+        </div>
+        <div class="desktop-buttons">
+            <div class="d-flex justify-content-center mt-2">
+                <button class="btn btn-outline-secondary btn-lg tombol-kategori me-3 filter-button" data-filter="ats">CV ATS</button>
+                <button class="btn btn-outline-secondary btn-lg tombol-kategori ms-3 filter-button" data-filter="kreative">CV Kreative</button>
+            </div>
+            <div class="d-flex justify-content-center mt-2">
+                <button class="btn btn-outline-secondary btn-lg tombol-kategori me-3 filter-button" data-filter="lamaran">Surat Lamaran Profesional</button>
+            </div>
+        </div>
+        <div class="mobile-buttons">
+            <button class="btn btn-outline-secondary btn-lg btn-block tombol-kategori mb-2 filter-button" data-filter="ats">CV ATS</button>
+            <button class="btn btn-outline-secondary btn-lg btn-block tombol-kategori mb-2 filter-button" data-filter="kreative">CV Kreative</button>
+            <button class="btn btn-outline-secondary btn-lg btn-block tombol-kategori mb-2 filter-button" data-filter="lamaran">Surat Lamaran Profesional</button>
+        </div>
+    </div>
+</div>
+
+<!-- isi -->
+<hr class="w-50 mx-auto my-2" />
+
+<div class="py-4">
+  <div class="row justify-content-center" style="margin-left:-8px; margin-right:-8px">
+      <article class="col-6 col-md-4 col-lg-3 mt-3 tema ats" style="padding-left: 8px; padding-right: 8px">
+          <figure class="card border h-100 m-0">
+              <div class="card-img-top">
+                <img class="w-100 rounded-top theme-img" src="asset/IMG/CV ATS.jpg" loading="lazy" alt="CV ATS 1">
+              </div>
+              <figcaption class="card-body">
+                  <div class="mb-3 text-center text-md-left">
+                      <h2 class="h6">Berinovasi</h2>
+                  </div>
+                  <div class="d-flex align-items-center justify-content-between" style="gap: 8px">
+                    <button type="button" class="btn btn-sm btn-secondary w-50" data-bs-toggle="modal" data-bs-target="#modalAts">Preview</button>
+                    <a href="pesan.html?tema=CV ATS 1" class="btn btn-primary btn-sm w-50">Pesan</a>
+                  </div>
+              </figcaption>
+          </figure>
+      </article>
+       <!-- Modal untuk CV ATS -->
+       <div class="modal fade" id="modalAts" tabindex="-1" aria-labelledby="modalAtsLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered d-flex justify-content-center align-items-center" style="max-width: 90vw; width: auto; margin: auto;">
+          <div class="modal-content" style="max-width: 90vw; width: auto;">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modalKreatifLabel">CV ATS 1</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+            </div>
+            <div class="modal-body text-center" style="padding: 0;">
+              <img src="asset/IMG/CV ATS.jpg" class="img-fluid rounded" style="max-height: 90vh; max-width: 90vw; width: auto; object-fit: contain;" alt="Preview CV ATS 1">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Cv Kreative 1 -->
+       <article class="col-6 col-md-4 col-lg-3 mt-3 tema kreative" style="padding-left: 8px; padding-right: 8px">
+          <figure class="card border h-100 m-0">
+              <div class="card-img-top">
+                <img class="w-100 rounded-top theme-img" src="asset/IMG/CV KREATIVE 1.jpg" loading="lazy" alt="CV ATS 1">
+              </div>
+              <figcaption class="card-body">
+                  <div class="mb-3 text-center text-md-left">
+                      <h2 class="h6">CV Kreative</h2>
+                  </div>
+                  <div class="d-flex align-items-center justify-content-between" style="gap: 8px">
+                    <button type="button" class="btn btn-sm btn-secondary w-50" data-bs-toggle="modal" data-bs-target="#modalkreatif">Preview</button>
+                    <a href="pesan.html?tema=CV KREATIVE 2" class="btn btn-primary btn-sm w-50">Pesan</a>
+                  </div>
+              </figcaption>
+          </figure>
+      </article>
+      <!-- Modal -->
+      <div class="modal fade" id="modalkreatif" tabindex="-1" aria-labelledby="modalKreatifLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered d-flex justify-content-center align-items-center" style="max-width: 90vw; width: auto; margin: auto;">
+          <div class="modal-content" style="max-width: 90vw; width: auto;">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modalKreatifLabel">CV Kreative 2</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+            </div>
+            <div class="modal-body text-center" style="padding: 0;">
+              <img src="asset/IMG/CV KREATIVE 1.jpg" class="img-fluid rounded" style="max-height: 90vh; max-width: 90vw; width: auto; object-fit: contain;" alt="Preview CV ATS 1">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Cv Kreative 2 -->
+      <article class="col-6 col-md-4 col-lg-3 mt-3 tema kreative" style="padding-left: 8px; padding-right: 8px">
+        <figure class="card border h-100 m-0">
+            <div class="card-img-top">
+              <img class="w-100 rounded-top theme-img" src="asset/IMG/CV KREATIVE 2.jpg" loading="lazy" alt="CV ATS 1">
+            </div>
+            <figcaption class="card-body">
+                <div class="mb-3 text-center text-md-left">
+                    <h2 class="h6">CV Kretive 2</h2>
+                </div>
+                <div class="d-flex align-items-center justify-content-between" style="gap: 8px">
+                  <button type="button" class="btn btn-sm btn-secondary w-50" data-bs-toggle="modal" data-bs-target="#modalkreatif2">Preview</button>
+                  <a href="pesan.html?tema=CV KREATIVE 2" class="btn btn-primary btn-sm w-50">Pesan</a>
+                </div>
+            </figcaption>
+        </figure>
+    </article>
+    <!-- Modal -->
+    <div class="modal fade" id="modalkreatif2" tabindex="-1" aria-labelledby="modalKreatifLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered d-flex justify-content-center align-items-center" style="max-width: 90vw; width: auto; margin: auto;">
+        <div class="modal-content" style="max-width: 90vw; width: auto;">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalKreatifLabel">CV Kreative 2</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+          </div>
+          <div class="modal-body text-center" style="padding: 0;">
+            <img src="asset/IMG/CV KREATIVE 2.jpg" class="img-fluid rounded" style="max-height: 90vh; max-width: 90vw; width: auto; object-fit: contain;" alt="Preview CV ATS 2">
+          </div>
+        </div>
+      </div>
+    </div>
+
+         
+   </div>
+</div>
+
+  <!-- Footer -->
+  <footer class="bg-info bg-opacity-12 py-3 ">
+    <div class="container text-center">
+      <h6 class="fw-semibold text-muted mb-2">dcreative web undangan</h6>
+      
+      <div class=" d-flex justify-content-center align-items-center icon-footer">
+        <a href="https://www.instagram.com/diraprmna_/" target="_blank" class="me-5">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="width: 28px; height: 28px; display: block;">
+        </a>
+        <a href="https://www.facebook.com/dirapermna.cboedakmns" target="_blank" class="me-5">
+          <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" style="width: 28px; height: 28px; display: block;">
+        </a>
+        <a href="https://wa.me/6283143235772" target="_blank" >
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 28px; height: 28px; display: block;">
+        </a>
+      </div>
+  
+      <hr class="w-50 mx-auto my-2" />
+  
+      <p class="text-light small mb-0">&copy; 2025 dcreative.webinvite — All rights reserved.</p>
+    </div>
+  </footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-button');
+    const temaItems = document.querySelectorAll('.tema');
+
+    // Tambahkan kelas 'active' pada tombol 'Semua Tema' saat halaman dimuat
+    const semuaTemaButton = document.querySelector('.filter-button[data-filter="semua"]');
+    if (semuaTemaButton) {
+        semuaTemaButton.classList.add('active');
+    }
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const filterValue = this.getAttribute('data-filter');
+
+            // Hapus kelas 'active' dari semua tombol
+            filterButtons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Tambahkan kelas 'active' pada tombol yang diklik
+            this.classList.add('active');
+
+            temaItems.forEach(tema => {
+                if (filterValue === 'semua' || tema.classList.contains(filterValue)) {
+                    tema.style.display = 'block'; // Tampilkan tema
+                } else {
+                    tema.style.display = 'none'; // Sembunyikan tema
+                }
+            });
+        });
+    });
+});
+</script>
+
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="JS/script.js"></script>
+</body>
+</html>

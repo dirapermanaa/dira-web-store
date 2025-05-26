@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>pesan</title>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+  <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      overflow: hidden; /* Biar nggak bisa di-scroll */
+    }
+    .chat-container {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding-top: 60px; /* Untuk ngangkat ke atas */
+      background-color: #f8f9fa;
+    }
+    .card-custom {
+      width: 100%;
+      max-width: 380px;
+      padding: 30px;
+      border-radius: 20px;
+      min-height: 450px;
+    }
+    .btn-rounded {
+      border-radius: 30px;
+    }
+
+    /* Mobile <768px */
+  @media (max-width: 767.98px) {
+    .chat-container {
+      align-items: flex-start;
+      padding-top: 60px; /* Untuk ngangkat ke atas */
+      background-color: #f8f9fa;
+    }
+  }
+    
+  </style>
+</head>
+
+<body>
+  <div class="chat-container">
+    <div class="card shadow card-custom">
+      <div class="text-center mb-3">
+        <img src="asset/images/l.jpg" class="rounded-circle mb-2" style="height: 50px; width: 50px;" alt="Logo">
+        <h5 class="fw-bold text-primary mb-0">Chat Admin</h5>
+        <small class="text-muted">Dcreative</small>
+      </div>
+
+      <div class="mb-2">
+        <label for="waNumber" class="form-label text-center fs-0.1">👇Klik tombol di bawah untuk menyalin👇</label>
+        <input type="text" class="form-control text-center fw-bold" id="waNumber" value="083143235772" readonly>
+      </div>
+
+      <div class="d-grid gap-2 my-3">
+        <button class="btn btn-outline-primary btn-rounded" onclick="copyNumber()">Salin Nomor</button>
+        <a id="tombol-wa" class="btn btn-success" target="_blank">Hubungi via WhatsApp</a>
+      </div>
+
+      <p class="text-center small text-muted mb-0">Jika tombol tidak berfungsi, silakan salin nomor secara manual.</p>
+    </div>
+  </div>
+
+  <script>
+    function copyNumber() {
+      const input = document.getElementById("waNumber");
+      navigator.clipboard.writeText(input.value).then(() => {
+        alert("Nomor berhasil disalin!");
+      });
+    }
+
+    // Ambil parameter tema dari URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const tema = urlParams.get("tema");
+
+    // Siapkan data WhatsApp
+    const nomorAdmin = "6283143235772"; // Ganti dengan nomor kamu
+    const pesan = `Saya mau pesan ${tema}`;
+    const urlWA = `https://wa.me/${nomorAdmin}?text=${encodeURIComponent(pesan)}`;
+
+    // Ubah tombol agar link ke WhatsApp otomatis
+    const tombolWA = document.getElementById("tombol-wa");
+    tombolWA.setAttribute("href", urlWA);
+  </script>
+</body>
+</html>
