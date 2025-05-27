@@ -471,7 +471,7 @@ h2 {
   }
 
   .navbar-toggler.toggled .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='blue' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M2 2l12 12M14 2L2 14'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml;charsetutf8,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='blue' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M2 2l12 12M14 2L2 14'/%3E%3C/svg%3E");
     width: 1.7rem;
     height: 1.7rem;
   }
@@ -617,6 +617,57 @@ h2 {
     margin-top: -100px;
   }
 
+  /* Perbaikan layout mobile untuk tombol di Trending Theme */
+  .card-body .btn {
+    width: 48%;
+    margin-bottom: 0;
+  }
 
+  .card-body .btn + .btn {
+    margin-left: 4%;
+  }
 
+  @media (max-width: 767.98px) {
+    /* Batasi aturan hanya untuk halaman tema dan bagian pilihan desain */
+    .py-4 .card-body .btn {
+      width: 100% !important;
+      margin-bottom: 0.5rem !important;
+    }
+
+    .py-4 .card-body .btn + .btn {
+      margin-left: 0 !important;
+    }
+
+    /* Tambahan agar container kartu tidak overflow dan tombol rapi */
+    .py-4 article.col-6, .py-4 article.col-md-4, .py-4 article.col-lg-3 {
+      padding-left: 0.5rem !important;
+      padding-right: 0.5rem !important;
+    }
+
+    .py-4 figure.card {
+      width: 100% !important;
+      box-sizing: border-box;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      text-align: center !important;
+    }
+
+    .py-4 .card-img-top {
+      max-height: 120px !important;
+      width: 100% !important;
+      object-fit: contain !important;
+      margin-bottom: 1rem !important;
+    }
+
+    .py-4 figcaption.card-body {
+      padding: 0 1rem !important;
+      width: 100% !important;
+    }
+
+    .py-4 .card-body .btn {
+      width: 100% !important;
+      margin-bottom: 0.5rem !important;
+    }
+  }
 }
