@@ -627,19 +627,9 @@ h2 {
     margin-left: 4%;
   }
 
-  @media (max-width: 767.98px) {
-    /* Batasi aturan hanya untuk halaman tema dan bagian pilihan desain */
-    .py-4 .card-body .btn {
-      width: 100% !important;
-      margin-bottom: 0.5rem !important;
-    }
-
-    .py-4 .card-body .btn + .btn {
-      margin-left: 0 !important;
-    }
 
     /* Tambahan agar container kartu tidak overflow dan tombol rapi */
-    .py-4 article.col-6, .py-4 article.col-md-4, .py-4 article.col-lg-3 {
+    /* .py-4 article.col-6, .py-4 article.col-md-4, .py-4 article.col-lg-3 {
       padding-left: 0.5rem !important;
       padding-right: 0.5rem !important;
     }
@@ -668,6 +658,5 @@ h2 {
     .py-4 .card-body .btn {
       width: 100% !important;
       margin-bottom: 0.5rem !important;
-    }
-  }
+    } */
 }
