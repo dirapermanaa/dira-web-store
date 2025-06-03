@@ -90,13 +90,9 @@
           /* seperti font-weight, box-shadow, dll. */
       }
 
-     
-
-      /* Tidak ada perubahan signifikan pada CSS desktop yang Anda miliki */
-
-/* Media query untuk layar dengan lebar maksimum 767px (ukuran layar mobile) */
-@media (max-width: 767px) {
-    .desktop-buttons {
+    /* Media query untuk layar dengan lebar maksimum 767px (ukuran layar mobile) */
+    @media (max-width: 767px) {
+        .desktop-buttons {
         display: none;
     }
 
@@ -190,12 +186,14 @@
               </div>
               <div class="d-flex justify-content-center mt-2">
                   <button class="btn btn-outline-secondary btn-lg tombol-kategori me-3 filter-button" data-filter="lamaran">Surat Lamaran Profesional</button>
+                  <button class="btn btn-outline-secondary btn-lg tombol-kategori me-3 filter-button" data-filter="resign">Surat Resign</button>
               </div>
           </div>
           <div class="mobile-buttons">
-              <button class="btn btn-outline-secondary btn-lg btn-block tombol-kategori mb-2 filter-button" data-filter="ats">CV ATS</button>
+              <button class="btn btn-outline-secondary btn-lg btn-block tombol-kategori mb-2 filter-button" data-filter="ats">CV ATS Friendly</button>
               <button class="btn btn-outline-secondary btn-lg btn-block tombol-kategori mb-2 filter-button" data-filter="kreative">CV Kreative</button>
               <button class="btn btn-outline-secondary btn-lg btn-block tombol-kategori mb-2 filter-button" data-filter="lamaran">Surat Lamaran Profesional</button>
+              <button class="btn btn-outline-secondary btn-lg btn-block tombol-kategori mb-2 filter-button" data-filter="resign">Surat Resign</button>
           </div>
       </div>
     </div>
@@ -206,7 +204,7 @@
       <div class="row justify-content-center" style="margin-left:-8px; margin-right:-8px">
           
          <!-- Modal Cv CV ATS Friendly 2 -->
-         <article class="col-6 col-md-4 col-lg-3 mt-3 tema ats" style="padding-left: 8px; padding-right: 8px">
+         <article class="col-6 col-md-4 col-lg-3 col-sm-6 mt-3 tema ats" style="padding-left: 8px; padding-right: 8px">
           <figure class="card border h-100 m-0">
               <div class="card-img-top">
                 <img class="w-100 rounded-top theme-img" src="asset/IMG/CV ATS Friendly 1.jpg" loading="lazy" alt="CV ATS Friendly 2">
@@ -215,7 +213,7 @@
                   <div class="mb-3 text-center text-md-left">
                       <h3 class="h6">CV ATS 1</h3>
                   </div>
-                  <div class="d-flex align-items-center justify-content-between " style="gap: 8px">
+                  <div class="d-flex align-items-center justify-content-between" style="gap: 8px">
                     <button type="button" class="btn btn-sm btn-secondary w-50" data-bs-toggle="modal" data-bs-target="#modalAts1">Preview</button>
                     <a href="pesan.html?tema=CV ATS Friendly 1" class="btn btn-primary btn-sm w-50">Pesan</a>
                   </div>
