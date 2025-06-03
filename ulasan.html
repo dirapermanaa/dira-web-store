@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ulasan - Dira Store</title>
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+  <link rel="stylesheet" href="CSS/style.css" />
+  <style>
+    .star-rating {
+      font-size: 2rem;
+      color: #ddd;
+      cursor: pointer;
+    }
+    .star-rating .filled {
+      color: #ffc107;
+    }
+    .rating-summary {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .rating-text {
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+    .review-list {
+      max-width: 600px;
+      margin-top: 1rem;
+    }
+    .review-item {
+      border-bottom: 1px solid #ddd;
+      padding: 0.5rem 0;
+    }
+    .review-stars {
+      color: #ffc107;
+    }
+    .review-name {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    .review-comment {
+      font-style: italic;
+      margin-bottom: 0.5rem;
+    }
+    @media (max-width: 767.98px) {
+      .star-rating {
+        font-size: 1.5rem;
+      }
+      .rating-summary {
+        font-size: 1.2rem;
+      }
+      body{
+        padding-top: 0.5rem;
+      }
+    }
+    
+    
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center fw-bold m-0" href="index.html">
+        <img src="asset/images/l.jpg" alt="Logo" width="50" height="50" class="me-2" loading="lazy" />
+        dira web <span class="text-primary">store</span>
+      </a>
+      <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto me-3">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="tema.html">Tema</a></li>
+          <li class="nav-item"><a class="nav-link" href="portfolio.html">Portofolio</a></li>
+          <li class="nav-item"><a class="nav-link" href="kontak.html">Kontak</a></li>
+          <li class="nav-item"><a class="nav-link active" href="ulasan.html">Ulasan</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container py-4">
+    <h1 class="mb-4 text-center">Beri Ulasan buat Dira Store</h1>
+
+    <div class="rating-summary justify-content-center">
+      <div id="average-rating" class="fw-bold">0.0</div>
+      <div id="average-stars" class="star-rating"></div>
+      <div id="rating-text" class="rating-text"></div>
+    </div>
+
+    <form id="review-form" class="mb-4" novalidate>
+      <div class="mb-3">
+        <label for="review-name" class="form-label">Nama Anda</label>
+        <input type="text" class="form-control" id="review-name" placeholder="Masukkan nama Anda" required />
+        <div class="invalid-feedback">Nama wajib diisi.</div>
+      </div>
+      <div class="mb-3">
+        <label for="review-comment" class="form-label">Komentar</label>
+        <textarea class="form-control" id="review-comment" rows="3" placeholder="Tulis komentar Anda" required></textarea>
+        <div class="invalid-feedback">Komentar wajib diisi.</div>
+      </div>
+      <div id="star-input" class="star-rating mb-3" aria-label="Pilih rating bintang" role="radiogroup"></div>
+      <div class="invalid-feedback d-block" id="rating-error" style="display:none;">Rating wajib dipilih.</div>
+      <button type="submit" class="btn btn-primary">Kirim Ulasan</button>
+    </form>
+
+    <div id="review-list" class="review-list mx-auto"></div>
+  </main>
+
+  <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script>
+    (() => {
+      const response = confirm("Apakah Anda admin?\nKlik OK jika Anda admin, atau Batal jika Anda pengguna biasa.");
+      let isAdmin = false;
+  
+      if (response) {
+        const password = prompt("Masukkan password admin:");
+        if (password === "dira123") {
+          isAdmin = true;
+          alert("Akses admin diterima.");
+        } else {
+          alert("Password salah. Anda akan masuk sebagai pengguna biasa.");
+        }
+      } else {
+        alert("Anda masuk sebagai pengguna biasa.");
+      }
+  
+      const starInput = document.getElementById('star-input');
+      const reviewForm = document.getElementById('review-form');
+      const reviewList = document.getElementById('review-list');
+      const averageRatingEl = document.getElementById('average-rating');
+      const averageStarsEl = document.getElementById('average-stars');
+      const ratingTextEl = document.getElementById('rating-text');
+      const reviewNameInput = document.getElementById('review-name');
+      const reviewCommentInput = document.getElementById('review-comment');
+      const ratingError = document.getElementById('rating-error');
+  
+      let selectedRating = 0;
+      let reviews = JSON.parse(localStorage.getItem('reviews')) || [];
+  
+      function renderStars(container, rating, clickable = false) {
+        container.innerHTML = '';
+        for (let i = 1; i <= 5; i++) {
+          const star = document.createElement('i');
+          star.classList.add('bi');
+          if (i <= rating) {
+            star.classList.add('bi-star-fill', 'filled');
+          } else {
+            star.classList.add('bi-star');
+          }
+          if (clickable) {
+            star.dataset.value = i;
+            star.setAttribute('role', 'radio');
+            star.setAttribute('aria-checked', i === rating ? 'true' : 'false');
+            star.setAttribute('tabindex', i === rating ? '0' : '-1');
+            star.addEventListener('click', () => {
+              selectedRating = i;
+              renderStars(container, selectedRating, true);
+              ratingError.style.display = 'none';
+            });
+          }
+          container.appendChild(star);
+        }
+      }
+  
+      function updateAverage() {
+        if (reviews.length === 0) {
+          averageRatingEl.textContent = '0.0';
+          renderStars(averageStarsEl, 0);
+          ratingTextEl.textContent = '';
+          return;
+        }
+        const sum = reviews.reduce((acc, r) => acc + r.rating, 0);
+        const avg = sum / reviews.length;
+        averageRatingEl.textContent = avg.toFixed(1);
+        renderStars(averageStarsEl, Math.round(avg));
+        if (avg >= 4.5) ratingTextEl.textContent = 'Sangat Baik';
+        else if (avg >= 3.5) ratingTextEl.textContent = 'Baik';
+        else if (avg >= 2.5) ratingTextEl.textContent = 'Cukup';
+        else if (avg >= 1.5) ratingTextEl.textContent = 'Kurang';
+        else ratingTextEl.textContent = 'Buruk';
+      }
+  
+      function renderReviews() {
+        reviewList.innerHTML = '';
+        reviews.forEach((review, index) => {
+          const div = document.createElement('div');
+          div.className = 'review-item';
+          div.innerHTML = `
+            <div class="review-name">${review.name}</div>
+            <div class="review-stars">${'★'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)}</div>
+            <div class="review-comment">${review.comment}</div>
+          `;
+  
+          // Tombol hapus jika admin
+          if (isAdmin) {
+            const deleteBtn = document.createElement('button');
+            deleteBtn.className = 'btn btn-sm btn-danger mt-1';
+            deleteBtn.textContent = 'Hapus';
+            deleteBtn.addEventListener('click', () => {
+              if (confirm("Yakin ingin menghapus ulasan ini?")) {
+                reviews.splice(index, 1);
+                localStorage.setItem('reviews', JSON.stringify(reviews));
+                updateAverage();
+                renderReviews();
+              }
+            });
+            div.appendChild(deleteBtn);
+          }
+  
+          reviewList.appendChild(div);
+        });
+      }
+  
+      reviewForm.addEventListener('submit', e => {
+        e.preventDefault();
+        if (selectedRating === 0) {
+          ratingError.style.display = 'block';
+          return;
+        }
+        if (!reviewNameInput.value.trim()) {
+          reviewNameInput.classList.add('is-invalid');
+          return;
+        } else {
+          reviewNameInput.classList.remove('is-invalid');
+        }
+        if (!reviewCommentInput.value.trim()) {
+          reviewCommentInput.classList.add('is-invalid');
+          return;
+        } else {
+          reviewCommentInput.classList.remove('is-invalid');
+        }
+  
+        const newReview = {
+          name: reviewNameInput.value.trim(),
+          comment: reviewCommentInput.value.trim(),
+          rating: selectedRating
+        };
+  
+        reviews.push(newReview);
+        localStorage.setItem('reviews', JSON.stringify(reviews));
+        selectedRating = 0;
+        renderStars(starInput, 0, true);
+        reviewForm.reset();
+        updateAverage();
+        renderReviews();
+      });
+  
+      renderStars(starInput, 0, true);
+      updateAverage();
+      renderReviews();
+    })();
+  </script>
+  
+  
+</body>
+</html>
