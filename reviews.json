@@ -1,0 +1,42 @@
+[
+  {
+    "name": "p",
+    "comment": "fff",
+    "rating": 5
+  },
+  {
+    "name": "Test User",
+    "comment": "Ini adalah ulasan test.",
+    "rating": 5
+  },
+  {
+    "name": "rgg",
+    "comment": "bagus",
+    "rating": 5
+  },
+  {
+    "name": "oo",
+    "comment": "hhhh",
+    "rating": 5
+  },
+  {
+    "name": "dd",
+    "comment": "dd",
+    "rating": 5
+  },
+  {
+    "name": "xxxxxx",
+    "comment": "ss",
+    "rating": 5
+  },
+  {
+    "name": "ssss",
+    "comment": "ss",
+    "rating": 5
+  },
+  {
+    "name": "dddd",
+    "comment": "dd",
+    "rating": 4
+  }
+]

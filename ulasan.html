@@ -85,7 +85,7 @@
   </nav>
 
   <main class="container py-4">
-    <h1 class="mb-4 text-center">Beri Ulasan buat Dira Store</h1>
+    <h1 class="mb-4 text-center">Beri Ulasan buat Web Dira Store</h1>
 
     <div class="rating-summary justify-content-center">
       <div id="average-rating" class="fw-bold">0.0</div>
@@ -116,19 +116,24 @@
   <script src="JS/script.js"></script>
   <script>
     (() => {
-      const response = confirm("Apakah Anda admin?\nKlik OK jika Anda admin, atau Batal jika Anda pengguna biasa.");
       let isAdmin = false;
-  
-      if (response) {
-        const password = prompt("Masukkan password admin:");
-        if (password === "dira123") {
-          isAdmin = true;
-          alert("Akses admin diterima.");
+      if (!sessionStorage.getItem('ulasanAlertShown')) {
+        const response = confirm("Apakah Anda admin?\nKlik OK jika Anda admin, atau Batal jika Anda pengguna biasa.");
+        if (response) {
+          const password = prompt("Masukkan password admin:");
+          if (password === "dira123") {
+            isAdmin = true;
+            alert("Akses admin diterima.");
+          } else {
+            alert("Password salah. Anda akan masuk sebagai pengguna biasa.");
+          }
         } else {
-          alert("Password salah. Anda akan masuk sebagai pengguna biasa.");
+          alert("Anda masuk sebagai pengguna biasa.");
         }
+        sessionStorage.setItem('ulasanAlertShown', 'true');
       } else {
-        alert("Anda masuk sebagai pengguna biasa.");
+        // Jika alert sudah pernah muncul di session ini, set isAdmin tetap false
+        isAdmin = false;
       }
   
       const starInput = document.getElementById('star-input');
@@ -142,7 +147,44 @@
       const ratingError = document.getElementById('rating-error');
   
       let selectedRating = 0;
-      let reviews = JSON.parse(localStorage.getItem('reviews')) || [];
+      let reviews = [];
+  
+      async function fetchReviews() {
+        try {
+          const response = await fetch('http://localhost:3000/reviews');
+          if (response.ok) {
+            reviews = await response.json();
+            updateAverage();
+            renderReviews();
+          } else {
+            console.error('Failed to fetch reviews');
+          }
+        } catch (error) {
+          console.error('Error fetching reviews:', error);
+        }
+      }
+  
+      async function postReview(review) {
+        try {
+          const response = await fetch('http://localhost:3000/reviews', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(review)
+          });
+          if (response.ok) {
+            const newReview = await response.json();
+            reviews.push(newReview);
+            updateAverage();
+            renderReviews();
+          } else {
+            console.error('Failed to post review');
+          }
+        } catch (error) {
+          console.error('Error posting review:', error);
+        }
+      }
   
       function renderStars(container, rating, clickable = false) {
         container.innerHTML = '';
@@ -206,7 +248,7 @@
             deleteBtn.addEventListener('click', () => {
               if (confirm("Yakin ingin menghapus ulasan ini?")) {
                 reviews.splice(index, 1);
-                localStorage.setItem('reviews', JSON.stringify(reviews));
+                // Note: Deletion on backend not implemented
                 updateAverage();
                 renderReviews();
               }
@@ -243,19 +285,40 @@
           rating: selectedRating
         };
   
-        reviews.push(newReview);
-        localStorage.setItem('reviews', JSON.stringify(reviews));
+        postReview(newReview).then(() => {
+          const successAlert = document.createElement('div');
+          successAlert.style.position = 'fixed';
+          successAlert.style.top = '10px';
+          successAlert.style.left = '50%';
+          successAlert.style.transform = 'translateX(-50%)';
+          successAlert.style.backgroundColor = '#198754'; /* Bootstrap success color */
+          successAlert.style.color = 'white';
+          successAlert.style.padding = '10px 20px';
+          successAlert.style.borderRadius = '5px';
+          successAlert.style.boxShadow = '0 2px 6px rgba(0,0,0,0.2)';
+          successAlert.style.zIndex = '9999';
+          successAlert.textContent = 'Ulasan Anda berhasil dikirim';
+          document.body.appendChild(successAlert);
+          setTimeout(() => {
+            successAlert.remove();
+          }, 3000);
+        });
         selectedRating = 0;
         renderStars(starInput, 0, true);
         reviewForm.reset();
-        updateAverage();
-        renderReviews();
       });
   
       renderStars(starInput, 0, true);
-      updateAverage();
-      renderReviews();
+      fetchReviews();
     })();
+
+    // Clear alert flag only when navigating away to a different page (not on reload)
+    window.addEventListener('beforeunload', (event) => {
+      // Check if navigation is reload or back/forward
+      if (!performance.getEntriesByType('navigation')[0].type.includes('reload')) {
+        sessionStorage.removeItem('ulasanAlertShown');
+      }
+    });
   </script>
   
   
