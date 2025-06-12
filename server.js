@@ -14,6 +14,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname)));
 
 app.get('*', (req, res) => {
+  console.log(`Request received for: ${req.originalUrl}`);
   res.sendFile(path.join(__dirname, 'ulasan.html'));
 });
 
