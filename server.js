@@ -4,11 +4,18 @@ const path = require('path');
 const cors = require('cors');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const DATA_FILE = path.join(__dirname, 'reviews.json');
 
 app.use(cors());
 app.use(express.json());
+
+// Serve static files from the root directory (where your HTML, CSS, JS files are)
+app.use(express.static(path.join(__dirname)));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'ulasan.html'));
+});
 
 // Load reviews from file or initialize empty array
 let reviews = [];
@@ -43,5 +50,6 @@ app.post('/reviews', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  const host = process.env.HOST || 'localhost';
+  console.log(`Server running on http://${host}:${PORT}`);
 });

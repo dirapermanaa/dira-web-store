@@ -151,7 +151,7 @@
   
       async function fetchReviews() {
         try {
-          const response = await fetch('http://localhost:3000/reviews');
+          const response = await fetch(`${window.location.origin}/reviews`);
           if (response.ok) {
             reviews = await response.json();
             updateAverage();
@@ -166,7 +166,7 @@
   
       async function postReview(review) {
         try {
-          const response = await fetch('http://localhost:3000/reviews', {
+          const response = await fetch(`${window.location.origin}/reviews`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
