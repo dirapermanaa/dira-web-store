@@ -19,7 +19,7 @@
   "homepage": "https://github.com/diraaprmna/dirawebstore#readme",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^5.1.0"
+    "express": "^4.18.2"
   },
   "description": ""
 }
