@@ -61,31 +61,55 @@
     
   </style>
 </head>
-<body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
-    <div class="container">
-      <a class="navbar-brand d-flex align-items-center fw-bold m-0" href="index.html">
-        <img src="asset/images/l.jpg" alt="Logo" width="50" height="50" class="me-2" loading="lazy" />
-        dira web <span class="text-primary">store</span>
-      </a>
-      <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto me-3">
-          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="tema.html">Tema</a></li>
-          <li class="nav-item"><a class="nav-link" href="portfolio.html">Portofolio</a></li>
-          <li class="nav-item"><a class="nav-link" href="kontak.html">Kontak</a></li>
-          <li class="nav-item"><a class="nav-link active" href="ulasan.html">Ulasan</a></li>
-        </ul>
+  <body>
+    <!-- Modal for Admin Password -->
+    <div class="modal fade" id="adminPasswordModal" tabindex="-1" aria-labelledby="adminPasswordModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <form id="admin-password-form">
+            <div class="modal-header">
+              <h5 class="modal-title" id="adminPasswordModalLabel">Masuk Admin</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <input type="text" id="admin-username-input" class="form-control mb-3" placeholder="Username" required autofocus />
+              <div class="invalid-feedback" id="username-invalid-feedback">Username wajib diisi dan harus 'admin'.</div>
+              <input type="password" id="admin-password-input" class="form-control" placeholder="Password" required />
+              <div class="invalid-feedback" id="password-invalid-feedback">Password wajib diisi.</div>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary">Masuk</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
-  </nav>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center fw-bold m-0" href="index.html">
+          <img src="asset/images/l.jpg" alt="Logo" width="50" height="50" class="me-2" loading="lazy" />
+          dira web <span class="text-primary">store</span>
+        </a>
+        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto me-3">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="tema.html">Tema</a></li>
+            <li class="nav-item"><a class="nav-link" href="portfolio.html">Portofolio</a></li>
+            <li class="nav-item"><a class="nav-link" href="kontak.html">Kontak</a></li>
+            <li class="nav-item"><a class="nav-link active" href="ulasan.html">Ulasan</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
   <main class="container py-4">
-    <h1 class="mb-4 text-center">Beri Ulasan buat Web Dira Store</h1>
+    <h1 class="mb-4 text-center text-primary">Beri Ulasan buat Web Dira Store</h1>
 
     <div class="rating-summary justify-content-center">
       <div id="average-rating" class="fw-bold">0.0</div>
@@ -97,12 +121,12 @@
       <div class="mb-3">
         <label for="review-name" class="form-label">Nama Anda</label>
         <input type="text" class="form-control" id="review-name" placeholder="Masukkan nama Anda" required />
-        <div class="invalid-feedback">Nama wajib diisi.</div>
+        <div class="invalid-feedback">Nama wajib di isi.</div>
       </div>
       <div class="mb-3">
         <label for="review-comment" class="form-label">Komentar</label>
         <textarea class="form-control" id="review-comment" rows="3" placeholder="Tulis komentar Anda" required></textarea>
-        <div class="invalid-feedback">Komentar wajib diisi.</div>
+        <div class="invalid-feedback">Komentar wajib di isi.</div>
       </div>
       <div id="star-input" class="star-rating mb-3" aria-label="Pilih rating bintang" role="radiogroup"></div>
       <div class="invalid-feedback d-block" id="rating-error" style="display:none;">Rating wajib dipilih.</div>
@@ -120,17 +144,54 @@
       if (!sessionStorage.getItem('ulasanAlertShown')) {
         const response = confirm("Apakah Anda admin?\nKlik OK jika Anda admin, atau Batal jika Anda pengguna biasa.");
         if (response) {
-          const password = prompt("Masukkan password admin:");
-          if (password === "dira123") {
-            isAdmin = true;
-            alert("Akses admin diterima.");
-          } else {
-            alert("Password salah. Anda akan masuk sebagai pengguna biasa.");
-          }
+          // Tampilkan modal password admin
+          const adminPasswordModal = new bootstrap.Modal(document.getElementById('adminPasswordModal'));
+          adminPasswordModal.show();
+
+          const adminPasswordForm = document.getElementById('admin-password-form');
+          const adminPasswordInput = document.getElementById('admin-password-input');
+
+          adminPasswordForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const adminUsernameInput = document.getElementById('admin-username-input');
+            const username = adminUsernameInput.value.trim();
+            const password = adminPasswordInput.value.trim();
+
+            let valid = true;
+
+            if (!username || username.toLowerCase() !== 'admin') {
+              adminUsernameInput.classList.add('is-invalid');
+              valid = false;
+            } else {
+              adminUsernameInput.classList.remove('is-invalid');
+            }
+
+            if (!password) {
+              adminPasswordInput.classList.add('is-invalid');
+              valid = false;
+            } else {
+              adminPasswordInput.classList.remove('is-invalid');
+            }
+
+            if (!valid) {
+              return;
+            }
+
+            if (username.toLowerCase() === 'admin' && password === "dira123") {
+              isAdmin = true;
+              alert("Akses admin diterima.");
+              renderReviews(); // panggil ulang renderReviews setelah login admin
+            } else {
+              alert("Username atau password salah. Anda akan masuk sebagai pengguna biasa.");
+            }
+            adminPasswordModal.hide();
+            sessionStorage.setItem('ulasanAlertShown', 'true');
+          }, { once: true });
         } else {
           alert("Anda masuk sebagai pengguna biasa.");
+          sessionStorage.setItem('ulasanAlertShown', 'true');
         }
-        sessionStorage.setItem('ulasanAlertShown', 'true');
       } else {
         // Jika alert sudah pernah muncul di session ini, set isAdmin tetap false
         isAdmin = false;
@@ -218,6 +279,18 @@
           ratingTextEl.textContent = '';
           return;
         }
+        if (reviews.length === 1) {
+          // Jika hanya ada satu ulasan, tampilkan rating terkecil (minimal) dari ulasan tersebut
+          const minRating = Math.min(...reviews.map(r => r.rating));
+          averageRatingEl.textContent = minRating.toFixed(1);
+          renderStars(averageStarsEl, minRating);
+          if (minRating >= 4.5) ratingTextEl.textContent = 'Sangat Baik';
+          else if (minRating >= 3.5) ratingTextEl.textContent = 'Baik';
+          else if (minRating >= 2.5) ratingTextEl.textContent = 'Cukup';
+          else if (minRating >= 1.5) ratingTextEl.textContent = 'Kurang';
+          else ratingTextEl.textContent = 'Buruk';
+          return;
+        }
         const sum = reviews.reduce((acc, r) => acc + r.rating, 0);
         const avg = sum / reviews.length;
         averageRatingEl.textContent = avg.toFixed(1);
@@ -245,12 +318,22 @@
             const deleteBtn = document.createElement('button');
             deleteBtn.className = 'btn btn-sm btn-danger mt-1';
             deleteBtn.textContent = 'Hapus';
-            deleteBtn.addEventListener('click', () => {
+            deleteBtn.addEventListener('click', async () => {
               if (confirm("Yakin ingin menghapus ulasan ini?")) {
-                reviews.splice(index, 1);
-                // Note: Deletion on backend not implemented
-                updateAverage();
-                renderReviews();
+                try {
+                  const response = await fetch(`${window.location.origin}/reviews/${index}`, {
+                    method: 'DELETE'
+                  });
+                  if (response.ok) {
+                    reviews.splice(index, 1);
+                    updateAverage();
+                    renderReviews();
+                  } else {
+                    alert('Gagal menghapus ulasan.');
+                  }
+                } catch (error) {
+                  alert('Terjadi kesalahan saat menghapus ulasan.');
+                }
               }
             });
             div.appendChild(deleteBtn);
